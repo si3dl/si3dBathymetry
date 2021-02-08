@@ -14,7 +14,7 @@ import scipy.io as spio
 
 # Import functions
 root = "C://Users/"
-user = "SV"
+user = "Sergio"
 func = "/Documents/Github/si3dInputs/"
 FuncPath = root + user + func
 sys.path.append(FuncPath)
@@ -22,12 +22,12 @@ from si3dInputs import bathy4si3d
 del root, user, func, FuncPath
 
 # -------------------- User variables declaration -----------------------------
-root = "G:/My Drive"
-PathProject = "/Lake_Tahoe/Projects/RotationalWeddeburnNumber/"
+root = "S:/"
+PathProject = "si3D/"
 # Chose the name of folder for the simulation
-SimFolder = 'rho1L20H100f39W15'
+SimFolder = 'L10_H100_W15_N10_f40'
 # Chose path to save bathymetry file
-PathSave = root+PathProject+"si3D/"+SimFolder
+PathSave = root+PathProject+SimFolder
 # Chose the name of the simulation for the header in bathy files
 # NOTE: This name requires an specific length. The length will be validated by the bathy4si3d code.
 SimName = "Rect Basin R1   "
@@ -53,8 +53,8 @@ if BasinType == 1:
     mindepth = -0.2
     os.chdir(BathyPath)
 elif BasinType == 2:
-    L = 20000
-    B = 20000
+    L = 10000
+    B = 10000
     H = 100
 elif BasinType == 3:
     D = 10
@@ -82,7 +82,7 @@ elif BasinType == 5:
 # ---------------- Plotting of the resulting bathymetric file ----------------------
 fig,ax = plt.subplots()
 fig.Units = 'inches'
-plot = ax.pcolor(X,Y,np.flipud(Z),shading = 'auto')
+plot = ax.pcolor(X,Y,np.flipud(Z))
 fig.colorbar(plot)
 ax.set_aspect('equal')
 ax.grid(True, which='major',axis='both',linestyle='-',color=[0/255, 0/255, 0/255])
