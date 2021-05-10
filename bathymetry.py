@@ -14,7 +14,7 @@ import scipy.io as spio
 
 # Import functions
 root = "C://Users/"
-user = "Sergio"
+user = "SV"
 func = "/Documents/Github/si3dInputs/"
 FuncPath = root + user + func
 sys.path.append(FuncPath)
