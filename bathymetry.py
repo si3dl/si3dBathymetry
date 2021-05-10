@@ -59,11 +59,6 @@ elif BasinType == 2:
 elif BasinType == 3:
     D = 10
     H = 10
-elif BasinType == 4:
-    D = 10
-    H = 10
-elif BasinType == 5:
-    H = 1
 
  # -------------------- Beginning of Code to Create File -------------------------
 # Function call for the creation of the bathymetry file in the folder PathSave
