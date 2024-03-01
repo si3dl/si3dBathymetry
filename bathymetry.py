@@ -10,7 +10,6 @@ import sys
 import os
 import numpy as np
 import matplotlib.pyplot as plt
-import scipy.io as spio
 
 # Import functions
 root = "C://Users/"
@@ -32,7 +31,7 @@ PathSave = root+PathProject+SimFolder
 # NOTE: This name requires an specific length. The length will be validated by the bathy4si3d code.
 SimName = "Rect Basin R1   "
 # Chose the grid size in the horizontal direction
-dx = 500 #[m] in the x/y-horizontal direction
+dx = 500  #[m] in the x/y-horizontal direction
 # Chose the basin type
 # Use 1 for real lake Bathymetry
 # Use 2 for rectangular basins
@@ -60,26 +59,26 @@ elif BasinType == 3:
     D = 10
     H = 10
 
- # -------------------- Beginning of Code to Create File -------------------------
+# -------------------- Beginning of Code to Create File -------------------------
 # Function call for the creation of the bathymetry file in the folder PathSave
 if BasinType == 1:
-    [X,Y,Z] = bathy4si3d(BasinType,SimName,dx,PathSave,xg,yg,zg)
+    [X, Y, Z] = bathy4si3d(BasinType, SimName, dx, PathSave, xg, yg, zg)
 elif BasinType == 2:
-    [X,Y,Z] = bathy4si3d(BasinType,SimName,dx,PathSave,L,B,H)
+    [X, Y, Z] = bathy4si3d(BasinType, SimName, dx, PathSave, L, B, H)
 elif BasinType == 3:
-    [X,Y,Z] = bathy4si3d(BasinType,SimName,dx,PathSave,D,H)
+    [X, Y, Z] = bathy4si3d(BasinType, SimName, dx, PathSave, D, H)
 elif BasinType == 4:
-    [X,Y,Z] = bathy4si3d(BasinType,SimName,dx,PathSave,D,H)
+    [X, Y, Z] = bathy4si3d(BasinType, SimName, dx, PathSave, D, H)
 elif BasinType == 5:
-    [X,Y,Z] = bathy4si3d(BasinType,SimName,dx,PathSave,D,H)
+    [X, Y, Z] = bathy4si3d(BasinType, SimName, dx, PathSave, D, H)
 
 
 # ---------------- Plotting of the resulting bathymetric file ----------------------
-fig,ax = plt.subplots()
+fig, ax = plt.subplots()
 fig.Units = 'inches'
-plot = ax.pcolor(X,Y,np.flipud(Z))
+plot = ax.pcolor(X, Y, np.flipud(Z))
 fig.colorbar(plot)
 ax.set_aspect('equal')
-ax.grid(True, which='major',axis='both',linestyle='-',color=[0/255, 0/255, 0/255])
+ax.grid(True, which='major', axis='both', linestyle='-', color=[0 / 255, 0 / 255, 0 / 255])
 plt.draw()
 plt.show()
